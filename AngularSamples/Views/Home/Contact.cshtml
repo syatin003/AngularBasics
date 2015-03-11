@@ -1,0 +1,23 @@
+﻿
+<!doctype html>
+<html>
+<head>
+    <title>AngularJS First Application</title>      @*The ng-app directive starts an AngularJS Application.*@ 
+</head>             @*The ng-init directive initializes an AngularJS Application data. It is used to assign values to the variables.*@ 
+<body>              @*The ng-model directive defines the model/variable to be used in AngularJS Application.*@ 
+    <h1>Sample Application</h1>     @*The ng-repeat directive repeats HTML elements for each item in a collection*@
+    <div ng-app="" ng-init="countries=[{locale:'en-US',name:'United States'},  
+                                    {locale:'en-GB',name:'United Kingdom'},
+                                    {locale:'en-FR',name:'France'}]">
+        <p>Enter your Name: <input type="text" ng-model="name"></p>
+        <p>Hello <span ng-bind="name"></span>!</p>
+        <p>List of Countries with locale:</p>
+        <ol>
+            <li ng-repeat="country in countries">
+                {{ 'Country: ' + country.name + ', Locale: ' + country.locale }}
+            </li>
+        </ol>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</body>
+</html>

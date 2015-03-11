@@ -1,0 +1,55 @@
+﻿<html>
+<head>
+    <title>
+        My first AngularJs app
+    </title>
+</head>
+<body>
+    <h1>AngularJs App</h1>
+    <div ng-app="" ng-controller="studentController">
+        <table>
+            <tr><td>Enter First Name: <input type="text" ng-model="student.firstName" /></td></tr>
+            <tr><td>Enter Last Name: <input type="text" ng-model="student.lastName" /></td></tr>
+            <tr><td>Your Fees: <input type="text" ng-model="student.fees" /></td></tr>
+            <tr><td>Enter Subject: <input type="text" ng-model="subjectName" /></td></tr>
+        </table>
+        <br />
+        <table>
+            <tr><td>Name in Upper Case:</td><td>{{student.fullName() | uppercase}}</td></tr>
+            <tr><td>Name in Lower Case:</td><td>{{student.fullName() | lowercase}}</td></tr>
+            <tr><td>Fees:</td><td>{{student.fees | currency}}</td></tr>
+            <tr>
+                <td>Subject:</td>
+                <td>
+                    <ul>
+                        <li ng-repeat="subject in student.subjects | filter: subjectName | orderBy: 'marks'">
+                        {{subject.name + 'marks:' + subject.marks}}
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function studentController($scope) {
+            $scope.student = {
+                firstName: "ABC",
+                lastName: "XYZ",
+                fees: 300,
+                subjects: [
+                    { name: 'Physics', marks: 84 },
+                    { name: 'Chemistry', marks: 88 },
+                    { name: 'Math', marks: 96 }
+                ],
+                fullName: function () {
+                    var studentObject;
+                    studentObject = $scope.student;
+                    return studentObject.firstName + " " + studentObject.lastName;
+                }
+            };
+
+        }
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</body>
+</html>

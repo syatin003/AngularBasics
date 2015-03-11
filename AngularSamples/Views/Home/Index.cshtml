@@ -1,0 +1,20 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>First WebPage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.js"></script>
+</head>
+<body ng-app="myapp">         @*ng-app--------it is required to tell which part of HTML contains the AngularJS app.*@ 
+    <div ng-controller="HelloController">                       @*ng-controller------- tells AngularJS which controller to use with this view.*@
+        <h2>Welcome {{helloTo.title}} to the world of Tutorialspoint!</h2>      @*Expressions are used to bind application data to HTML. Expressions are written inside double curly braces such as in {{ expression}}.*@
+    </div>
+    <script>            //This code registers a controller function named HelloController in the angular module named myapp. 
+        angular.module("myapp",[])
+        .controller("HelloController", function ($scope) {      //The $scope parameter model is passed to the controller function. The controller
+                                                                //function adds a helloTo JavaScript object, and in that object it adds a title field.
+            $scope.helloTo = {};
+            $scope.helloTo.title = "AngularJS";
+        });
+    </script>
+</body>
+</html>
