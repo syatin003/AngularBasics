@@ -60,5 +60,21 @@ namespace AngularSamples.Controllers
         {
             return View();
         }
+        public ActionResult Ajax()
+        {
+            return View();
+        }
+        public ActionResult Views()
+        {
+            return View();
+        }
+        public ActionResult Scope()
+        {
+            return View();
+        }
+        public ActionResult Services()
+        {
+            return View();
+        }
     }
 }

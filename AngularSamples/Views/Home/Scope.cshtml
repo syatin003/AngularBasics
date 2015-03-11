@@ -1,0 +1,38 @@
+﻿<html>
+<head>
+    <title>Angular JS Forms</title>
+</head>
+<body>
+    <h2>Scope</h2>           @*Scope is a special JavaScript object that connects controller with views. Scope contains model data. 
+                                                        In controllers, model data is accessed via $scope object.*@
+    <div ng-app="mainApp" ng-controller="shapeController">
+        <p>{{message}} <br /> {{type}} </p>
+        <div ng-controller="circleController">
+            <p>{{message}} <br /> {{type}} </p>
+        </div>
+        <div ng-controller="squareController">
+            <p>{{message}} <br /> {{type}} </p>
+        </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script>
+        var mainApp = angular.module("mainApp", []);
+
+        mainApp.controller("shapeController", function ($scope) {   //The $scope is passed as first argument to controller during its constructor definition.
+            $scope.message = "In shape controller";         //The $scope.message and $scope.type are the models which are used in the HTML page.
+            $scope.type = "Shape";                          //We can define functions in $scope.
+        });
+
+        mainApp.controller("circleController", function ($scope) {  //Scope is controller-specific. If we define nested controllers,
+                                                                //then the child controller inherits the scope of its parent controller.
+            $scope.message = "In circle controller";
+        });
+
+        mainApp.controller("squareController", function ($scope) {
+            $scope.message = "In square controller";
+            $scope.type = "Square";
+        });
+
+    </script>
+</body>
+</html>

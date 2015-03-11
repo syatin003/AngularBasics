@@ -1,0 +1,58 @@
+﻿<html>
+<head>
+    <title>Angular JS Views</title>
+   
+</head>
+<body>
+    <h2>Views ng-view Directive</h2>                   @*The ng-view directive simply creates a place holder where a corresponding view (HTML or ng-template view)
+                                                                 can be placed based on the configuration.*@
+                                                        @*The ng-template directive is used to create an HTML view using script tag. 
+                                                            It contains id attribute which is used by $routeProvider to map a view with a controller.*@
+                                                    @*The $routeProvider is a key service which sets the configuration of URLs,
+                                                         maps them with the corresponding HTML page or ng-template, and attaches a controller with the same.*@
+    <div ng-app="mainApp">      
+        <p><a href="#addStudent">Add Student</a></p>
+        <p><a href="#viewStudents">View Students</a></p>
+        <div ng-view></div>
+        <script type="text/ng-template" id="addStudent.html">
+            <h2> Add Student </h2>
+            {{message}}
+        </script>
+        <script type="text/ng-template" id="viewStudents.html">
+            <h2> View Students </h2>
+            {{message}}
+        </script>
+    </div>
+
+    <script>
+        var mainApp = angular.module("mainApp", ['ngRoute']);
+
+        mainApp.config(['$routeProvider',
+           function ($routeProvider) {
+               $routeProvider.
+                  when('/addStudent', {
+                      templateUrl: 'addStudent.html',
+                      controller: 'AddStudentController'
+                  }).
+                  when('/viewStudents', {
+                      templateUrl: 'viewStudents.html',
+                      controller: 'ViewStudentsController'
+                  }).
+                  otherwise({
+                      redirectTo: '/addStudent'
+                  });
+           }]);
+
+        mainApp.controller('AddStudentController', function ($scope) {
+            $scope.message = "This page will be used to display add student form";
+        });
+
+        mainApp.controller('ViewStudentsController', function ($scope) {
+            $scope.message = "This page will be used to display all the students";
+        });
+    </script>
+
+    <script src="~/angular.js"></script>
+    <script src="~/angular-route.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<html>
+<head>
+    <title>Angular JS Forms</title>
+</head>
+<body>
+    <h2>Two ways to create a service---Factory & Service </h2>@*Services are JavaScript functions, which are responsible to perform only specific tasks. *@
+    <div ng-app="mainApp" ng-controller="CalcController">               @*AngularJS provides many inbuilt services. For example, $http, $route, $window, $location, etc.*@
+        <p>
+            Enter a number: <input type="number" ng-model="number" />
+            <button ng-click="square()">X<sup>2</sup></button>
+        <p>Result: {{result}}</p>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script>
+        var mainApp = angular.module("mainApp", []);            //using Factory method
+        mainApp.factory('MathService', function () {
+            var factory = {};
+            factory.multiply = function (a, b) {
+                return a * b
+            }
+            return factory;
+        });
+
+        mainApp.service('CalcService', function (MathService) {     //using Service method
+            this.square = function (a) {
+                return MathService.multiply(a, a);
+            }
+        });
+
+        mainApp.controller('CalcController', function ($scope, CalcService) {
+            $scope.square = function () {
+                $scope.result = CalcService.square($scope.number);
+            }
+        });
+    </script>
+</body>
+</html>
