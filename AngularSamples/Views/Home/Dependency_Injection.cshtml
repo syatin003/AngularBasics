@@ -1,0 +1,68 @@
+﻿<html>
+<head>
+    <title>AngularJS Dependency Injection</title>
+</head>
+<body>
+    <h2>Dependency Injection ---It provides following core components which can be injected into each other as dependencies.
+        <h1> Value,Factory,Service,Provider,Constant</h1></h2>
+    
+     
+    @*Value is a simple JavaScript object, which is required to pass values to the controller during config phase *@
+      @*Constants are used to pass values at the config phase considering the fact that value cannot be used during the config phase.*@
+    @*Factory is a function which is used to return value. It creates a value on demand whenever a service or a controller requires it. It generally uses a factory function to calculate and return the value.*@
+    @*Service is a singleton JavaScript object containing a set of functions to perform certain tasks. Service is defined using service() function and it is then injected into the controllers.*@
+    @*Provider is used by AngularJS internally to create services, factory, etc. during the config phase.*@
+    
+    
+    <div ng-app="mainApp" ng-controller="CalcController">
+        <p>
+            Enter a number: <input type="number" ng-model="number" />
+            <button ng-click="square()">X<sup>2</sup></button>
+        <p>Result: {{result}}</p>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script>
+        //define a module
+        var mainApp = angular.module("mainApp", []);
+        //create a service using provider which defines a method square to return square of a number.
+        mainApp.config(function ($provide) {
+            $provide.provider('MathService', function () {
+                this.$get = function () {
+                    var factory = {};
+                    factory.multiply = function (a, b) {
+                        return a * b;
+                    }
+                    return factory;
+                };
+            });
+        });
+        //create a value object as "defaultInput" and pass it as a data
+        mainApp.value("defaultInput", 5);
+        //create  a factory "MathService" which provides a method multiply to return muliplication of two numbers 
+        mainApp.factory('MathService', function () {
+            var factory = {};
+            factory.multiply = function (a, b) {
+                return a * b;
+            }
+            return factory;
+        });
+        //create a service which defines a method square to return square of a number.
+        //inject the factory "MathService" in a service to utilize the multiply method of factory.
+        mainApp.service('CalcService', function (MathService) {
+            this.square = function (a) {
+                return MathService.multiply(a, a);
+            }
+        });
+        //inject the service "CalcService" into the controller
+        //inject the value in a controller using its name "defaultInput"
+        mainApp.controller('CalcController', function ($scope, CalcService, defaultInput) {
+            $scope.number = defaultInput;
+            $scope.result = CalcService.square($scope.number);
+
+            $scope.square = function () {
+                $scope.result = CalcService.square($scope.number);
+            }
+        });
+    </script>
+</body>
+</html>

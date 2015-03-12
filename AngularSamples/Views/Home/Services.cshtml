@@ -3,7 +3,7 @@
     <title>Angular JS Forms</title>
 </head>
 <body>
-    <h2>Two ways to create a service---Factory & Service </h2>@*Services are JavaScript functions, which are responsible to perform only specific tasks. *@
+    <h2>Two ways to create a service---Factory & Services </h2>@*Services are JavaScript functions, which are responsible to perform only specific tasks. *@
     <div ng-app="mainApp" ng-controller="CalcController">               @*AngularJS provides many inbuilt services. For example, $http, $route, $window, $location, etc.*@
         <p>
             Enter a number: <input type="number" ng-model="number" />
@@ -32,6 +32,7 @@
                 $scope.result = CalcService.square($scope.number);
             }
         });
+
     </script>
 </body>
 </html>

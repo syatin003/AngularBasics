@@ -76,5 +76,13 @@ namespace AngularSamples.Controllers
         {
             return View();
         }
+        public ActionResult Dependency_Injection()
+        {
+            return View();
+        }
+        public ActionResult CustomDirective()
+        {
+            return View();
+        }
     }
 }

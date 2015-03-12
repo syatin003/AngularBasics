@@ -1128,6 +1128,12 @@
   <ItemGroup>
     <Content Include="Views\Home\Services.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Dependency_Injection.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\CustomDirective.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

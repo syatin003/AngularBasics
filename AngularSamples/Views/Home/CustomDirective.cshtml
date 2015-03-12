@@ -1,0 +1,78 @@
+﻿<html>
+<head>
+   <title>Angular JS Custom Directives</title>
+</head>
+<body>
+   <h2>Custom Directives</h2>
+    @*Custom directives are used in AngularJS to extend the functionality of HTML. They are defined using directive function.
+         A custom directive simply replaces the element for which it is activated.*@
+
+   @*AngularJS provides support to create custom directives for the following elements:
+
+    Element directive - This activates when a matching element is encountered.
+
+    Attribute - This activates when a matching attribute is encountered.
+
+    CSS - This activates when a matching CSS style is encountered.
+
+    Comment - Directive activates when a matching comment is encountered.*@
+    <div ng-app="mainApp" ng-controller="StudentController">
+		<student name="ABC"></student><br/>
+		<student name="XYZ"></student>
+   </div>
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+   <script>
+       //define the module.
+      var mainApp = angular.module("mainApp", []);
+       //Create a directive,first parameter is the html element to be attached.
+       //we are attaching student html tag.
+       //this directive will be activated as soon as any student element is encountered in html.
+
+      mainApp.directive('student', function () {
+
+          //define the diective object.
+          var directive = {};
+
+          //resticts = E, signifies that directive is Element directive.
+          directive.restrict = 'E';
+
+          //template replaces the complete element with its text.
+         directive.template = "Student: <b>{{student.name}}</b> , Roll No: <b>{{student.rollno}}</b>";
+
+          //scope is used to distinguish each student element based on criteria.
+         directive.scope = {
+            student : "=name"
+         }
+		 //compile is called during application initialization. AngularJs calls it once when HTML page is loaded.
+         directive.compile = function(element, attributes) {
+            element.css("border", "1px solid #cccccc");
+             //linkfunction is link with each element with scope or get the element specific data.
+            var linkFunction = function($scope, element, attributes) {
+               element.html("Student: <b>"+$scope.student.name +"</b> , Roll No: <b>"+$scope.student.rollno+"</b><br/>");
+               element.css("background-color", "#ff00ff");
+            }
+
+            return linkFunction;
+         }
+
+         return directive;
+      });
+	  
+       //Define Controller to update the scope for directive. HERE, we use the  value of name attribute as scope's child.
+      mainApp.controller('StudentController', function($scope) {
+            $scope.Mahesh = {};
+            $scope.Mahesh.name = "Mahesh Parashar";
+            $scope.Mahesh.rollno  = 1;
+
+            $scope.Piyush = {};
+            $scope.Piyush.name = "Piyush Parashar";
+            $scope.Piyush.rollno  = 2;
+      });
+      
+   </script>
+</body>
+</html>    ViewBag.Title = "CustomDirective";
+}
+
+<h2>CustomDirective</h2>
