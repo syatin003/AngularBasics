@@ -1134,6 +1134,9 @@
   <ItemGroup>
     <Content Include="Views\Home\CustomDirective.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Internalization.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

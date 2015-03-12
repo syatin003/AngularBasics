@@ -84,5 +84,9 @@ namespace AngularSamples.Controllers
         {
             return View();
         }
+        public ActionResult Internalization()
+        {
+            return View();
+        }
     }
 }
