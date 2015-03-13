@@ -2,11 +2,15 @@
 <!doctype html>
 <html>
 <head>
-    <title>AngularJS First Application</title>      @*The ng-app directive starts an AngularJS Application.*@ 
-</head>             @*The ng-init directive initializes an AngularJS Application data. It is used to assign values to the variables.*@ 
-<body>              @*The ng-model directive defines the model/variable to be used in AngularJS Application.*@ 
-    <h1>Sample Application</h1>     @*The ng-repeat directive repeats HTML elements for each item in a collection*@
-    <div ng-app="" ng-init="countries=[{locale:'en-US',name:'United States'},  
+    <title>AngularJS First Application</title>
+ </head>                                 @*The ng-app directive starts an AngularJS Application.
+            The ng-init directive initializes an AngularJS Application data. It is used to assign values to the variables.
+                                             We use JSON syntax to define the array of countries.
+         The ng-model directive defines the model/variable to be used in AngularJS Application.
+    The ng-repeat directive repeats HTML elements for each item in a collection*@
+<body>
+    <h1>Sample Application</h1>    
+    <div ng-app="" ng-init="countries=[{locale:'en-US',name:'United States'},
                                     {locale:'en-GB',name:'United Kingdom'},
                                     {locale:'en-FR',name:'France'}]">
         <p>Enter your Name: <input type="text" ng-model="name"></p>

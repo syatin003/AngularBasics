@@ -25,14 +25,17 @@
 
         mainApp.controller("circleController", function ($scope) {  //Scope is controller-specific. If we define nested controllers,
                                                                 //then the child controller inherits the scope of its parent controller.
-            $scope.message = "In circle controller";
+            $scope.message = "In circle controller";            //here the type is inherited from shape controller by circle controller
         });
 
         mainApp.controller("squareController", function ($scope) {
             $scope.message = "In square controller";
             $scope.type = "Square";
         });
-
+        /*The following important points are considered in above example:
+        We assign values to the models in shapeController.
+        We override message in child controller named circleController. 
+                    When message is used within the module of controller named circleController, the overridden message is used.*/
     </script>
 </body>
 </html>

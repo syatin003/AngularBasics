@@ -1,16 +1,24 @@
 ﻿<!doctype html>
 <html>
 <head>
-<title>AngularJS First Application</title>
+<title>AngularJS</title>
     </head>
+@*The ng-app directive indicates the start of AngularJS application.
+
+    The ng-model directive creates a model variable named name, which can be used with the HTML page and within the div having ng-app directive.
+
+    The ng-bind then uses the name model to be displayed in the HTML tag whenever user enters input in the text box.
+
+    Closing</div> tag indicates the end of AngularJS application.
+*@
 <body>
     <h1>Sample Application</h1>
     <div ng-app="">
         <p>Enter your Name: <input type="text" ng-model="name"></p>
-        <p>Enter yoyr DOB: <input type="date" ng-model="name1"/></p>
+        <p>Enter your DOB: <input type="date" ng-model="name1"/></p>
         <p>Hello <span ng-bind="name"></span>!</p>
         <p>Hello <span ng-bind="name1"></span>!</p>
-        @*<input type="button" ng-click="submit" />*@
+      
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 </body>

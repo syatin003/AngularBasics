@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-    <h2>AngularJS Sample Application</h2>
+    <h2>AngularJS $http Service</h2>
     <div ng-app="" ng-controller="studentController">
         <table>
             <tr>
@@ -34,9 +34,9 @@
         </table>
     </div>
     <script>
-        function studentController($scope, $http) {
+        function studentController($scope , $http) {
             var url = "data.txt";
-            $http.get(url).success(function (response) {    //AngularJs provides $http control which works as a service to read data from the server. 
+            $http.get(url).success(function (response)  {    //AngularJs provides $http control which works as a service to read data from the server. 
                                                             //The server makes a database call to get the desired records. AngularJS needs data in JSON format. 
                 $scope.students = response;
             });

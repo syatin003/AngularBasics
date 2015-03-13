@@ -5,23 +5,26 @@
 <body>
     <h2>Two ways to create a service---Factory & Services </h2>@*Services are JavaScript functions, which are responsible to perform only specific tasks. *@
     <div ng-app="mainApp" ng-controller="CalcController">               @*AngularJS provides many inbuilt services. For example, $http, $route, $window, $location, etc.*@
+                                                                 @*The controllers and filters can call them on requirement basis. 
+                                                                        Services are normally injected using the dependency injection mechanism of AngularJS.*@
         <p>
             Enter a number: <input type="number" ng-model="number" />
             <button ng-click="square()">X<sup>2</sup></button>
-        <p>Result: {{result}}</p>
+<p>Result: {{result}}</p>
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
     <script>
-        var mainApp = angular.module("mainApp", []);            //using Factory method
+        var mainApp = angular.module("mainApp", []);            //using Factory method,we first define a factory and then assign method to it.
         mainApp.factory('MathService', function () {
             var factory = {};
             factory.multiply = function (a, b) {
-                return a * b
+               return a * b;
             }
             return factory;
         });
 
-        mainApp.service('CalcService', function (MathService) {     //using Service method
+        mainApp.service('CalcService', function (MathService) {     //using Service method,we define a service and then assign method to it. 
+                                                                    //We also inject an already available service to it.
             this.square = function (a) {
                 return MathService.multiply(a, a);
             }

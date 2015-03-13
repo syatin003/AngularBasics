@@ -1,4 +1,17 @@
 ﻿<!doctype html>
+@*HTML document is loaded into the browser, and evaluated by the browser.
+
+    AngularJS JavaScript file is loaded, the angular global object is created.
+
+    The JavaScript which registers controller functions is executed.
+
+    Next, AngularJS scans through the HTML to search for AngularJS apps as well as views.
+
+    Once the view is located, it connects that view to the corresponding controller function.
+
+    Next, AngularJS executes the controller functions.
+
+    It then renders the views with data from the model populated by the controller. The page is now ready.*@
 <html>
 <head>
     <title>First WebPage</title>
@@ -6,14 +19,16 @@
 </head>
 <body ng-app="myapp">         @*ng-app--------it is required to tell which part of HTML contains the AngularJS app.*@ 
     <div ng-controller="HelloController">                       @*ng-controller------- tells AngularJS which controller to use with this view.*@
-        <h2>Welcome {{helloTo.title}} to the world of Tutorialspoint!</h2>      @*Expressions are used to bind application data to HTML. Expressions are written inside double curly braces such as in {{ expression}}.*@
+        <h2>Welcome {{helloTo.title}} to the world of Tutorialspoint!</h2>      @*Expressions are used to bind application data to HTML.
+                                                                                     Expressions are written inside double curly braces such as in {{ expression}}.*@
     </div>
-    <script>            //This code registers a controller function named HelloController in the angular module named myapp. 
+    <script>        //This code registers a controller function named HelloController in the angular module named myapp. 
+        //The controller function is registered in angular via the angular.module(...).controller(...) function call.
         angular.module("myapp",[])
         .controller("HelloController", function ($scope) {      //The $scope parameter model is passed to the controller function. The controller
                                                                 //function adds a helloTo JavaScript object, and in that object it adds a title field.
-            $scope.helloTo = {};
-            $scope.helloTo.title = "AngularJS";
+            $scope.helloTo = {};    //adds a javascript object.
+            $scope.helloTo.title = "AngularJS";  //adds a title field to object.
         });
     </script>
 </body>

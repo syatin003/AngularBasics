@@ -1,7 +1,8 @@
 ﻿<html>
 <head>
     <title>Angular JS Views</title>
-   
+    <script src="~/angular.js"></script>
+    <script src="~/angular-route.js"></script>
 </head>
 <body>
     <h2>Views ng-view Directive</h2>                   @*The ng-view directive simply creates a place holder where a corresponding view (HTML or ng-template view)
@@ -10,10 +11,11 @@
                                                             It contains id attribute which is used by $routeProvider to map a view with a controller.*@
                                                     @*The $routeProvider is a key service which sets the configuration of URLs,
                                                          maps them with the corresponding HTML page or ng-template, and attaches a controller with the same.*@
-    <div ng-app="mainApp">      
-        <p><a href="#addStudent">Add Student</a></p>
+        <div ng-app="mainApp">      
+        <p><a href= "#addStudent">Add Student</a></p>
         <p><a href="#viewStudents">View Students</a></p>
         <div ng-view></div>
+
         <script type="text/ng-template" id="addStudent.html">
             <h2> Add Student </h2>
             {{message}}
@@ -25,6 +27,7 @@
     </div>
 
     <script>
+        //Define a script block with main module and set the routing configuration.
         var mainApp = angular.module("mainApp", ['ngRoute']);
 
         mainApp.config(['$routeProvider',
@@ -52,7 +55,16 @@
         });
     </script>
 
-    <script src="~/angular.js"></script>
-    <script src="~/angular-route.js"></script>
+   
 </body>
 </html>
+@*The following points are important to be considered in the above example:
+
+    $routeProvider is defined as a function under config of mainApp module using key as '$routeProvider'.
+
+    $routeProvider.when defines a URL "/addStudent", which is mapped to "addStudent.htm". addStudent.htm should be present in the same path as main HTML page.
+     If the HTML page is not defined, then ng-template needs to be used with id="addStudent.htm". We used ng-template.
+
+    "otherwise" is used to set the default view.
+
+    "controller" is used to set the corresponding controller for the view.*@

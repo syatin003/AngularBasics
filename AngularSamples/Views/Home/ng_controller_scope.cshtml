@@ -2,8 +2,10 @@
 <html>
 <head>
     <title>AngularJS First Application</title>      @*AngularJS application mainly relies on controllers to control the flow of data in the application.
-                                                     A controller is defined using ng-controller directive. 
-                                                          A controller is a JavaScript object that contains attributes/properties, and functions. *@
+                                 A controller is defined using ng-controller directive.
+                                A controller is a JavaScript object that contains attributes/properties, and functions.
+                            Each controller accepts $scope as a parameter, which refers to the application/module that the controller needs to handle.*@
+                                 @*ng-controller------- tells AngularJS which controller to use with this view.*@
 </head>
 <body>
     <h2>AngularJS Sample Application</h2>
@@ -13,14 +15,8 @@
         Enter last name: <input type="text" ng-model="student.lastName"><br>
         
         You are entering: {{student.fullName()}}<br /><br />
-        
-     
-
-     
-
-        
-    </div>
-    <script>
+      </div>
+    <script>                                        @*The studentController is defined as a JavaScript object with $scope as an argument.*@
     function studentController($scope) {            @*The $scope refers to application which uses the studentController object.*@
         $scope.student = {                          //The $scope.student is a property of studentController object
             firstName: "ABC",
@@ -29,6 +25,7 @@
                 var studentObject;
                 studentObject = $scope.student;
                 return studentObject.firstName + " " + studentObject.lastName;
+                //  return $scope.student.firstName + " " + $scope.student.firstName;
             }
         };
     }

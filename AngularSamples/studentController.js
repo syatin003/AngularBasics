@@ -1,5 +1,5 @@
 ﻿mainApp.controller("studentController", function ($scope) {                     //we declare a controller studentController module using mainApp.controller function.
-    $scope.student = {
+    $scope.student = {                      //Controller module
         firstName: "ABC",
         lastName: "XYZ",
         fees: 500,
