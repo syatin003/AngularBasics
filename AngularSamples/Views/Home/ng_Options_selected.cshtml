@@ -1,0 +1,107 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example - example-example87-production</title>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular.min.js"></script>
+
+
+</head>
+<body ng-app="selectExample">
+    <script>
+        angular.module('selectExample', [])
+          .controller('ExampleController', ['$scope', function ($scope) {
+              $scope.colors = [
+                { name: 'black', shade: 'dark' },
+                { name: 'white', shade: 'light', notAnOption: true },
+                { name: 'red', shade: 'dark' },
+                { name: 'blue', shade: 'dark', notAnOption: true },
+                { name: 'yellow', shade: 'light', notAnOption: false }
+              ];
+              $scope.myColor = $scope.colors[2]; // red
+          }]);
+    </script>
+    <div ng-controller="ExampleController">
+        <ul>
+            <li ng-repeat="color in colors">
+                Name: <input ng-model="color.name">
+                <input type="checkbox" ng-model="color.notAnOption"> Disabled?
+                [<a href ng-click="colors.splice($index, 1)">X</a>]
+            </li>
+            <li>
+                [<a href ng-click="colors.push({})">add</a>]
+            </li>
+        </ul>
+        <hr />
+        Color (null not allowed):
+        <select ng-model="myColor" ng-options="color.name for color in colors"></select><br>
+        Color (null allowed):
+        <span class="nullable">
+            <select ng-model="myColor" ng-options="color.name for color in colors">
+                <option value="">-- choose color --</option>
+            </select>
+        </span><br />
+        Color grouped by shade:
+        <select ng-model="myColor" ng-options="color.name group by color.shade for color in colors"></select><br />
+        Color grouped by shade, with some disabled:
+        <select ng-model="myColor"
+                ng-options="color.name group by color.shade disable when color.notAnOption for color in colors"></select><br />
+
+        Select <a href ng-click="myColor = { name:'not in list', shade: 'other' }">bogus</a>.<br>
+        <hr />
+        Currently selected: {{ {selected_color:myColor} }}
+        <div style="border:solid 1px black; height:20px"
+             ng-style="{'background-color':myColor.name}">
+        </div>
+
+        Example of ng-selected:
+        <select>
+            <option>Hello!</option>
+            <option id="greet" ng-selected="selected">Greetings!</option>
+        </select>
+
+    </div>
+</body>
+</html>
+@*select as
+
+    Using select as will bind the result of the select expression to the model, 
+    but the value of the <select> and <option> html elements will be either the index (for array data sources) or
+     property name (for object data sources) of the value within the collection. If a track by expression is used,
+     the result of that expression will be set as the value of the option and select elements.
+
+    "select as" and "track by"
+
+    Do not use "select as" and "track by" in the same expression. They are not designed to work together*@
+
+@*ngOptions
+    (optional)
+     comprehension_expression
+    in one of the following forms:
+    •for array data sources:◦label for value in array
+    ◦select as label for value in array
+    ◦label group by group for value in array
+    ◦label disable when disable for value in array
+    ◦label group by group for value in array track by trackexpr
+    ◦label disable when disable for value in array track by trackexpr
+    ◦label for value in array | orderBy:orderexpr track by trackexpr (for including a filter with track by)
+
+    •for object data sources:◦label for (key , value) in object
+    ◦select as label for (key , value) in object
+    ◦label group by group for (key, value) in object
+    ◦label disable when disable for (key, value) in object
+    ◦select as label group by group for (key, value) in object
+    ◦select as label disable when disable for (key, value) in object
+
+
+    Where:
+    •array / object: an expression which evaluates to an array / object to iterate over.
+    •value: local variable which will refer to each item in the array or each property value of object during iteration.
+    •key: local variable which will refer to a property name in object during iteration.
+    •label: The result of this expression will be the label for <option> element. The expression will most likely refer to the value variable (e.g. value.propertyName).
+    •select: The result of this expression will be bound to the model of the parent <select> element. If not specified, select expression will default to value.
+    •group: The result of this expression will be used to group options using the <optgroup> DOM element.
+    •disable: The result of this expression will be used to disable the rendered <option> element. Return true to disable.
+    •trackexpr: Used when working with an array of objects. The result of this expression will be used to identify the objects in the array. The trackexpr will most likely refer to the value variable (e.g. value.propertyName). With this the selection is preserved even when the options are recreated (e.g. reloaded from the server).
+*@

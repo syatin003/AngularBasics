@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example - example-example85-production</title>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular-animate.js"></script>
+
+    <script type="text/javascript">
+        @*The ngModel directive binds an input,select, textarea (or custom form control) to a property on the scope using NgModelController,
+             which is created and exposed by this directive.*@
+    angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
+    </script>
+</head>
+<body ng-app="inputExample">
+    <script>
+        angular.module('inputExample', [])
+          .controller('ExampleController', ['$scope', function ($scope) {
+              $scope.val = '1';
+          }]);
+    </script>
+    <style>
+        .my-input {
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+            background: transparent;
+        }
+
+            .my-input.ng-invalid {
+                color: white;
+                background: red;
+            }
+    </style>
+    Update input to see transitions when valid/invalid.
+    Integer is a valid value.
+    <form name="testForm" ng-controller="ExampleController">
+        <input ng-model="val" ng-pattern="/^\d+$/" name="anim" class="my-input" />@*pattern to check input is only in numbers*@
+        <input ng-model="name" />
+        <span ng-bind-template=""></span>
+    </form>
+</body>
+</html>
+@*ngModel is responsible for:
+    •Binding the view into the model, which other directives such as input, textarea or select require.
+    •Providing validation behavior (i.e. required, number, email, url).
+    •Keeping the state of the control (valid/invalid, dirty/pristine, touched/untouched, validation errors).
+    •Setting related css classes on the element (ng-valid, ng-invalid, ng-dirty, ng-pristine, ng-touched, ng-untouched) including animations.
+    •Registering the control with its parent form.
+*@

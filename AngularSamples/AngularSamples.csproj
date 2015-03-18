@@ -192,6 +192,12 @@
   <ItemGroup>
     <Content Include="angular-route.js" />
     <Content Include="angular.js" />
+    <Content Include="animation.css" />
+    <Content Include="animation1.css" />
+    <Content Include="animation2.css" />
+    <Content Include="animation3.css" />
+    <Content Include="app.js" />
+    <Content Include="app2.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -251,6 +257,9 @@
     <Content Include="Global.asax" />
     <Content Include="main.html" />
     <Content Include="mainApp.js" />
+    <Content Include="script.js" />
+    <Content Include="script1.js" />
+    <Content Include="script2.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -1019,6 +1028,8 @@
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="studentController.js" />
     <Content Include="subjects.html" />
+    <Content Include="template1.html" />
+    <Content Include="template2.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1136,6 +1147,132 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Internalization.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\fxn_bootstrap.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\fxn_copy.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\dir_form.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\dir_inputCheckbox.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\dir_inputDate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\dir_inputDateLocal.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\dir_inputEmail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\dir_inputMonth.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\dir_inputNumber.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\dir_inputRadio.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\dir_inputText.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\dir_inputTime.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\dir_inputUrl.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\dir_inputWeek.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_app.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_bind_template.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_change.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_checked.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_class.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_even_odd.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_cloak.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_controller.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_copy_cut_paste_ReadOnly.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_dblClick.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_disabled.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_hideShow.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_href.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_if.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_include.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_keyDown_keyPress_keyUp.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_model.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_model_Option.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_mouseDown.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_open.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_Options_selected.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_repeat.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_pluralize.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_style.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_submit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_switch_when.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_transclude.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ng_value.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

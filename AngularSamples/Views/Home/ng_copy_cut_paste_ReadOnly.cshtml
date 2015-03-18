@@ -1,0 +1,25 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example - example-example79-production</title>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+
+
+</head>
+<body ng-app="">
+    Copy:
+    <input ng-copy="copied=true" ng-init="copied=false; value='copy me'" ng-model="value">
+    copied: {{copied}}<br />
+    Cut:
+    <input ng-cut="cut=true" ng-init="cut=false; value='cut me'" ng-model="value">
+    cut: {{cut}}<br />
+    Paste:
+    <input ng-paste="paste=true" ng-init="paste=false" placeholder='paste here'>
+    pasted: {{paste}}
+    ReadOnly:
+    Check me to make text readonly: <input type="checkbox" ng-model="checked"><br />
+    <input type="text" ng-readonly="checked" value="I'm Angular" />
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example - example-example66-production</title>
+    @*The ngCloak directive is used to prevent the Angular html template from being briefly displayed by 
+        the browser in its raw (uncompiled) form while your application is loading. 
+        Use this directive to avoid the undesirable flicker effect caused by the html template display.*@
+
+    @*The directive can be applied to the <body> element, but the preferred usage is to apply multiple ngCloak directives
+             to small portions of the page to permit progressive rendering of the browser view
+
+            @*When this css rule is loaded by the browser, all html elements (including their children) that are tagged with the ngCloak directive are hidden. When Angular encounters
+         this directive during the compilation of the template it deletes the ngCloak element attribute, making the compiled element visible.*@
+
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+
+    </head>
+    <body ng-app="">
+        <div id="template1" ng-cloak>{{ 'hello' }}</div>
+        <div id="template2" ng-cloak class="ng-cloak">{{ 'hello IE7' }}</div>
+    </body>
+    </html>

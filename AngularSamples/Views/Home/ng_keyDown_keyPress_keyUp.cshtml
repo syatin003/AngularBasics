@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example - example-example75-production</title>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+
+
+</head>
+<body ng-app="">
+    KeyDown:
+    <input ng-keydown="count = count + 1" ng-init="count=0">
+    key down count: {{count}}<br />
+    KeyPress:<input ng-keypress="count1 = count1 + 1" ng-init="count1=0">
+key press count: {{count1}}<br />
+    KeyUp:
+    <p>Typing in the input box below updates the key count</p>
+    <input ng-keyup="count = count + 1" ng-init="count=0"> key up count: {{count}}
+
+    <p>Typing in the input box below updates the keycode</p>
+    <input ng-keyup="event=$event">
+    <p>event keyCode: {{ event.keyCode }}</p>
+    <p>event altKey: {{ event.altKey }}</p>
+</body>
+</html>
